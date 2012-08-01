@@ -123,4 +123,14 @@ sub is_perfect_square {
 
     return 1;
 }
+
+sub is_palindrom {
+    my $n = shift;
+
+    if($n eq reverse($n)) {
+        return 1;
+    }
+
+    return 0;
+}
 1;
