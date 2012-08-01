@@ -133,4 +133,19 @@ sub is_palindrom {
 
     return 0;
 }
+
+sub get_divisors {
+    my $n = shift;
+
+    my @divisors = (1,$n);
+
+    for(my $i = 2; $i <= sqrt($n); $i++) {
+        if($n % $i == 0) {
+            #push(@divisors,$i);
+            #push(@divisors,$n / $i) if($n /$i != $i);
+        }
+    }
+
+    return \@divisors;
+}
 1;
