@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+no warnings qw(recursion);
 use POSIX qw(log10 ceil floor);
 
 use bignum;
@@ -147,5 +148,21 @@ sub get_divisors {
     }
 
     return \@divisors;
+}
+
+my %table = (0 => 1);
+sub factorial {
+    use bignum;
+    my $number = shift;
+    my $factorial;
+
+    if ( exists $table{$number} ) {
+        return $table{$number}; # Input found in the look-up table, returning stored value.
+    } else {
+        $factorial = factorial($number - 1) * $number;
+    }
+
+    $table{$number} = $factorial; # Inserting newly calculated value into new table.
+    return $factorial;
 }
 1;
