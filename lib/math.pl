@@ -92,7 +92,6 @@ sub largest_prime {
 
     $factor = 5;
     while($n > $factor) {
-        print "$factor\n";
         while($n % $factor == 0) {
             $n /= $factor;
         }
