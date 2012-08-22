@@ -60,6 +60,7 @@ sub fast_fib_number {
 }
 
 sub nearestint {
+    use bignum;
     my $v = shift;
     my $f = floor($v); my $c = ceil($v);
     ($v-$f) < ($c-$v) ? $f : $c;
